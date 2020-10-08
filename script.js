@@ -21,7 +21,8 @@ let counter = 0;
 
 async function getQuoteFromApi() {
   if (counter > 10) {
-    return;
+    authorText.innerText = 'Unknown';
+    quoteText.innerText = 'Unknown';
   }
   showLoadingSpinner();
   const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -38,7 +39,7 @@ async function getQuoteFromApi() {
     }
     // Reduce font size for long quotes
     if (data.quoteText.length > 120) {
-      quosteText.classList.add('long-quote');
+      quoteText.classList.add('long-quote');
     } else {
       quoteText.classList.remove('long-quote');
     }
